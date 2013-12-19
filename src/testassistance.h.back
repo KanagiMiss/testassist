@@ -1,0 +1,207 @@
+#ifndef TESTASSISTANCE_H
+#define TESTASSISTANCE_H
+
+#include <string>
+#include <QString>
+#include <QtSql>
+
+/*
+ * class      : TestAssistance
+ * author     : misskanagi
+ * data       : 2013/11/20
+ * description: This class is a management class which provides interfaces about database access.
+ *
+ *              Below is a list of access to each attribute:
+ *
+ *              |attr name   |access    |
+ *              |------------|----------|
+ *              |USERINFO    |R/W       |
+ *              |ERRORINFO   |R         |
+ *              |PAPERINFO   |W         |
+ *
+ *
+ *
+*/
+
+
+/*
+ * types
+ */
+typedef int         FLAG;
+typedef int         GRADE;
+
+/*
+ * question flags
+ */
+const FLAG NONEFLAG      = 0x00;
+const FLAG JUDGEFLAG     = 0x01;
+const FLAG CHOICEFLAG    = 0x02;
+const FLAG FILLFLAG      = 0x04;
+const FLAG CALCFLAG      = 0x08;
+const FLAG ANSFLAG       = 0x10;
+
+
+/*
+ * grade flags
+ */
+const GRADE GRADEONE     = 0x00;
+const GRADE GRADETWO     = 0x01;
+const GRADE GRADETHREE   = 0x02;
+const GRADE GRADEFOUR    = 0x03;
+
+
+/*
+ * error info
+ */
+const int TA_NOERROR                        = 0;
+const int TA_ERROR_NOTCONNECTED             = 1;
+const int TA_ERROR_SQLERROR                 = 2;
+const int TA_ERROR_USER_OR_PASS_INCORRECT   = 3;
+const int TA_ERROR_INCORRECT                = 4;
+const int TA_ERROR_USERNOTLOGIN             = 5;
+const int TA_ERROR_CANNOT_OPEN_DATABASE     = 6;
+
+
+
+/*
+ * user info struct
+ */
+typedef struct{
+    QString strUserName;
+    bool isAdmin;
+}USERINFO;
+
+
+/*
+ * error info struct
+ */
+typedef struct{
+    QString strErrInfo;
+    int         nErrCode;
+}ERRORINFO;
+
+
+/*
+ * paper info struct
+ */
+typedef struct{
+    int judge;
+    int choice;
+    int fill;
+    int calc;
+    int ans;
+}QNUM;//the number of questions
+
+typedef struct{
+    QString  strCourse;
+    GRADE        nGrade;
+    FLAG         nFlag;     //question flag which indicates kinds of questions
+    QNUM         qNum;      //number of every kind of questions
+    double       fEasy;     //percentage of easy questions
+    double       fNormal;   //percentage of normal questions
+    double       fHard;     //percentage of hard questions
+}PAPERINFO;
+
+
+/*
+ * Test assistance class
+ */
+class TestAssistance
+{
+    TestAssistance();
+public:
+
+    /* TestAssistance class is a singleton */
+
+    static void init(){
+        if(pSingleton == NULL)
+            pSingleton = new TestAssistance();
+    }
+
+    static TestAssistance *get(){
+        if(pSingleton == NULL)
+            pSingleton = new TestAssistance();
+        return pSingleton;
+    }
+
+    static void release(){
+        if(pSingleton != NULL){
+            delete pSingleton;
+            pSingleton = NULL;
+        }
+    }
+
+    /* public interfaces of access to database */
+
+    /* user login interface */
+    bool login(const QString &username, const QString &password);
+
+    /* user logout interface */
+    void logout();
+
+    /* read questions from database (a test) */
+    bool extractQuestion();
+
+    /* read all users' info from the table 'userinfo' */
+
+
+    /* get attributes */
+
+    const ERRORINFO &getErrorInfo()const{return m_objErrorInfo;}
+
+    const USERINFO &getUserInfo()const{return m_objUserInfo;}
+
+    const QString &getUserName()const{return m_objUserInfo.strUserName;}
+
+    bool isUserAdmin()const{return m_objUserInfo.isAdmin;}
+    bool isUserLogin()const{return m_bIsLogin;}
+
+    /* set attributes */
+
+    void setPaperInfo(const PAPERINFO &info);
+
+    void setPaperInfo(const QString &course, GRADE grade, FLAG flag, const QNUM &num,
+                      const double &easy = 0.7, const double &normal = 0.2, const double &hard = 0.1);
+
+private:
+    static TestAssistance *pSingleton;
+
+    /* private attributes */
+
+    ERRORINFO       m_objErrorInfo;
+    USERINFO        m_objUserInfo;
+    PAPERINFO       m_objPaperInfo;
+    bool            m_bIsLogin;//is user logged in
+    QSqlDatabase    m_objDatabase;
+
+    QString questionBuffer;
+    /* private interfaces */
+
+    bool extQuestionByType(int type);
+    bool hasType(int type){
+        if((m_objPaperInfo.nFlag & type) == 0)
+            return false;
+        return true;
+    }
+    bool isQuestionFull(int type, int cnt){
+        int max;
+        switch(type){
+        case JUDGEFLAG:max = m_objPaperInfo.qNum.judge;break;
+        case CHOICEFLAG:max = m_objPaperInfo.qNum.choice;break;
+        case FILLFLAG:max = m_objPaperInfo.qNum.fill;break;
+        case CALCFLAG:max = m_objPaperInfo.qNum.calc;break;
+        case ANSFLAG:max = m_objPaperInfo.qNum.ans;break;
+        default:max = 0;
+        }
+        if(cnt >= max)
+            return true;
+        return false;
+    }
+
+    /* package error information */
+
+    void packErrorInfo(const QString &strErrInfo, const int nErrCode);
+
+};
+
+#endif // TESTASSISTANCE_H

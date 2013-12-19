@@ -1,0 +1,124 @@
+#include "testassistance.h"
+#include <QFileInfo>
+#define MAX 100
+
+using namespace std;
+
+
+/*
+ * embed SQL
+ */
+const char *SQL_GET_QUSTIONS_BY_WHERE = "SELECT * FROM questions WHERE ";
+const char *SQL_DATABASE_PATH         = "data.db";
+
+
+TestAssistance *TestAssistance::pSingleton = NULL;
+
+TestAssistance::TestAssistance()
+{
+    m_bIsLogin = false;
+    m_objErrorInfo.nErrCode = TA_NOERROR;
+
+    //init database
+    m_objDatabase=QSqlDatabase::addDatabase("QSQLITE");
+    m_objDatabase.setDatabaseName(SQL_DATABASE_PATH);
+
+    QFileInfo checkFile(SQL_DATABASE_PATH);
+    if(checkFile.isFile()){
+        if(!m_objDatabase.open()){
+            packErrorInfo("Can not open database.",
+                          TA_ERROR_CANNOT_OPEN_DATABASE);
+        }
+    }
+    else{
+        packErrorInfo("Can not connect to database.",
+                      TA_ERROR_NOTCONNECTED);
+    }
+}
+
+void TestAssistance::packErrorInfo(const QString &strErrInfo, const int nErrCode)
+{
+    m_objErrorInfo.nErrCode = nErrCode;
+    m_objErrorInfo.strErrInfo = strErrInfo;
+}
+
+bool TestAssistance::login(const QString &username, const QString &password)
+{
+
+    //open database
+    if (!m_objDatabase.open()) {
+        packErrorInfo("Can not connect to database.",
+                      TA_ERROR_NOTCONNECTED);
+        return false;
+    }
+
+    //login
+    QSqlQuery query;
+    if(query.exec("SELECT isadmin FROM userinfo WHERE username=\'" + username +
+                  "\' AND password=\'" + password + "\'")){
+        if(query.next()){
+            m_bIsLogin = true;
+            m_objUserInfo.strUserName = username;
+            m_objUserInfo.isAdmin = (query.value(0).toInt()==1?true:false);
+            return true;
+        }
+        else{
+            packErrorInfo("Username or password is incorrect.",
+                          TA_ERROR_USER_OR_PASS_INCORRECT);
+            return false;
+        }
+    }
+    else{
+        packErrorInfo("Sql error.",
+                      TA_ERROR_SQLERROR);
+        return false;
+    }
+}
+
+void TestAssistance::logout()
+{
+    //clear user info
+    m_objUserInfo.isAdmin = false;
+    m_objUserInfo.strUserName = "";
+
+    m_bIsLogin = false;
+
+    //clear error info
+    m_objErrorInfo.nErrCode = TA_NOERROR;
+    m_objErrorInfo.strErrInfo = "";
+
+    //clear paper info
+    m_objPaperInfo.strCourse = "";
+    m_objPaperInfo.nGrade    = 0;
+    m_objPaperInfo.nFlag     = NONEFLAG;
+    m_objPaperInfo.fEasy     = 0;
+    m_objPaperInfo.fNormal   = 0;
+    m_objPaperInfo.fHard     = 0;
+}
+
+bool TestAssistance::extQuestionByType(int type)
+{
+    return true;
+}
+
+bool TestAssistance::extractQuestion()
+{
+    return true;
+}
+
+void TestAssistance::setPaperInfo(const PAPERINFO &info)
+{
+    m_objPaperInfo = info;
+}
+
+void TestAssistance::setPaperInfo(const QString &course, GRADE grade, FLAG flag, const QNUM &num,
+                                  const double &easy, const double &normal, const double &hard)
+{
+    m_objPaperInfo.strCourse = course;
+    m_objPaperInfo.nGrade    = grade;
+    m_objPaperInfo.nFlag     = flag;
+    m_objPaperInfo.qNum      = num;
+    m_objPaperInfo.fEasy     = easy;
+    m_objPaperInfo.fNormal   = normal;
+    m_objPaperInfo.fHard     = hard;
+}

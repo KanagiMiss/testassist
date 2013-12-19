@@ -1,0 +1,32 @@
+#+TITLE:     欢迎使用 自动出卷系统
+#+AUTHOR:    misskanagi
+#+EMAIL:     misskanagi@gmail.com
+#+DATE:      2013-12-08 周日
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+STYLE: <link rel="stylesheet" type="text/css" href="style1.css" />
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+#+XSLT:
+
+
+欢迎使用自动出卷系统！ \\
+如果您初次使用本软件，建议您阅读以下软件简介。
+
+* 软件简介
+- 点击菜单项或者工具栏的"打开"按钮来打开已有的试卷(html格式)；
+- 若想新建一个试卷，请点击菜单栏或者工具栏上的"新建"按钮，您可以根据向导创建试卷；
+- 打开或者新建试卷后，本软件提供给您一些简单的排版功能，但是我们建议您选择更专业的排版工具；
+- 在试卷编辑完后，您可以选择保存为html/odt以便使用其他软件进行修改，或者导出为pdf格式进行发布。
+
+
+* 其他帮助
+如果您在使用过程中遇到了bug，您可以通过以下方式联系开发者： \\
+邮箱：[[misskanagi@gmail.com]] \\
+博客：http://blog.csdn.net/misskanagi

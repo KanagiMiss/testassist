@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>785</width>
+    <height>602</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>自动出卷系统</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QToolBox" name="toolBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>125</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="paper_edit">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>123</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <attribute name="icon">
+        <iconset>
+         <normalon>:/UI/mail_new.png</normalon>
+        </iconset>
+       </attribute>
+       <attribute name="label">
+        <string>快捷编辑</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="insertTitle">
+          <property name="text">
+           <string>插入标题</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/UI/mail_new.png</normaloff>:/UI/mail_new.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="insertTable">
+          <property name="text">
+           <string>插入表格</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/UI/grid.png</normaloff>:/UI/grid.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="insetList">
+          <property name="text">
+           <string>插入列表</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/UI/list.png</normaloff>:/UI/list.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="insertImage">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>插入图片</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normalon>:/UI/thumbnail.png</normalon>
+           </iconset>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="insertHtml">
+          <property name="text">
+           <string>插入html</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/UI/news_subscribe.png</normaloff>:/UI/news_subscribe.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="insertQuestions">
+          <property name="text">
+           <string>快速出题</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/UI/editclear.png</normaloff>:/UI/editclear.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tools">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>123</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <attribute name="icon">
+        <iconset>
+         <normalon>:/UI/lin_agt_wrench.png</normalon>
+        </iconset>
+       </attribute>
+       <attribute name="label">
+        <string>实用工具</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="text">
+           <string>计算器</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="tabs">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="welcome">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QTextEdit" name="textEdit">
+          <property name="documentTitle">
+           <string>欢迎</string>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;title&gt;欢迎&lt;/title&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:20px; margin-left:20px; margin-right:20px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:12pt; font-weight:600; color:#990000;&quot;&gt;自动出卷系统&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:20px; margin-right:20px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:12pt; color:#000000;&quot;&gt;欢迎使用自动出卷系统！ &lt;br /&gt;如果您初次使用本软件，建议您阅读以下简介。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:20px; margin-right:20px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:20px; margin-right:20px; -qt-block-indent:0; text-indent:0px; font-family:'Verdana'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;outline-container-1&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt; 软件简介&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;text-1&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot;&gt;点&lt;/span&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot;&gt;击菜单项或者工具栏的&amp;quot;&lt;/span&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; font-weight:600; color:#000000;&quot;&gt;打开&lt;/span&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot;&gt;&amp;quot;(&lt;/span&gt;&lt;img src=&quot;:/UI/fileopen.png&quot; /&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot;&gt;)按钮来打开已有的试卷(html格式)；&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot; align=&quot;justify&quot; style=&quot; margin-top:5px; margin-bottom:5px; margin-left:25px; margin-right:25px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;若想新建一个试卷，请点击菜单栏或者工具栏上的&amp;quot;&lt;/span&gt;&lt;span style=&quot; font-size:13px; font-weight:600;&quot;&gt;新建&lt;/span&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;&amp;quot;(&lt;/span&gt;&lt;img src=&quot;:/UI/filenew.png&quot; /&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;)按钮，您可以根据向导创建试卷；&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot; align=&quot;justify&quot; style=&quot; margin-top:5px; margin-bottom:5px; margin-left:25px; margin-right:25px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;打开或者新建试卷后，本软件提供给您一些简单的排版功能，但是我们建议您选择更专业的排版工具；&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot; align=&quot;justify&quot; style=&quot; margin-top:5px; margin-bottom:12px; margin-left:25px; margin-right:25px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;在试卷编辑完后，您可以选择&lt;/span&gt;&lt;span style=&quot; font-size:13px; font-weight:600;&quot;&gt;保存为html/odt&lt;/span&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;(&lt;/span&gt;&lt;img src=&quot;:/UI/filesave.png&quot; /&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;)以便使用其他软件进行修改，或者&lt;/span&gt;&lt;span style=&quot; font-size:13px; font-weight:600;&quot;&gt;导出为pdf&lt;/span&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;(&lt;/span&gt;&lt;img src=&quot;:/UI/exportpdf.png&quot; /&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;)格式进行发布。&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:20px; margin-right:20px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:20px; margin-right:20px; -qt-block-indent:0; text-indent:0px; font-family:'Verdana'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;outline-container-2&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:12pt; font-weight:600; color:#000000;&quot;&gt; 其他帮助&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;text-2&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot;&gt;如&lt;/span&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot;&gt;果您在使用过程中遇到了bug，您可以通过以下方式向开发者发送bug信息： &lt;br /&gt;邮箱：&lt;/span&gt;&lt;a href=&quot;#misskanagi-gmail.com&quot;&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; text-decoration: underline; color:#336666;&quot;&gt;misskanagi@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; color:#000000;&quot;&gt; &lt;br /&gt;博客：&lt;/span&gt;&lt;a href=&quot;http://blog.csdn.net/misskanagi&quot;&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:13px; text-decoration: underline; color:#336666;&quot;&gt;http://blog.csdn.net/misskanagi&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>785</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionFileNew"/>
+    <addaction name="actionOpenTest"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionFileSaveAs"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrint"/>
+    <addaction name="actionPrintPreview"/>
+    <addaction name="actionExportPDF"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionPaste"/>
+    <addaction name="separator"/>
+    <addaction name="actionSearch"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>设置</string>
+    </property>
+    <addaction name="actionSetting"/>
+    <addaction name="actionAdmin"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="title">
+     <string>格式</string>
+    </property>
+    <addaction name="actionBold"/>
+    <addaction name="actionItalic"/>
+    <addaction name="actionUnderline"/>
+    <addaction name="separator"/>
+    <addaction name="actionLeftAlign"/>
+    <addaction name="actionCenter"/>
+    <addaction name="actionRightAlign"/>
+    <addaction name="actionFullJustify"/>
+    <addaction name="separator"/>
+    <addaction name="actionChangeFontColor"/>
+   </widget>
+   <widget class="QMenu" name="menu_6">
+    <property name="title">
+     <string>查看</string>
+    </property>
+    <addaction name="actionZoomIn"/>
+    <addaction name="actionZoomOut"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_5"/>
+   <addaction name="menu_6"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <property name="floatable">
+    <bool>true</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionFileNew"/>
+   <addaction name="actionOpenTest"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionPrint"/>
+   <addaction name="actionExportPDF"/>
+   <addaction name="separator"/>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionCut"/>
+   <addaction name="actionPaste"/>
+   <addaction name="actionSearch"/>
+   <addaction name="separator"/>
+   <addaction name="actionLeftAlign"/>
+   <addaction name="actionCenter"/>
+   <addaction name="actionRightAlign"/>
+   <addaction name="actionFullJustify"/>
+   <addaction name="separator"/>
+   <addaction name="actionChangeFontColor"/>
+   <addaction name="separator"/>
+   <addaction name="actionSetting"/>
+   <addaction name="actionHelp"/>
+  </widget>
+  <action name="actionOpenTest">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/fileopen.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>打开</string>
+   </property>
+   <property name="toolTip">
+    <string>打开一个试卷工程</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/filesave.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>保存</string>
+   </property>
+   <property name="toolTip">
+    <string>保存试卷工程</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionFileSaveAs">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/filesaveas.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>另存为</string>
+   </property>
+   <property name="toolTip">
+    <string>试卷工程另存为</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset>
+     <normaloff>UI/editcopy.png</normaloff>
+     <normalon>:/UI/editcopy.png</normalon>UI/editcopy.png</iconset>
+   </property>
+   <property name="text">
+    <string>复制</string>
+   </property>
+   <property name="toolTip">
+    <string>复制</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/editcut.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>剪切</string>
+   </property>
+   <property name="toolTip">
+    <string>剪切</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/editpaste.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>粘贴</string>
+   </property>
+   <property name="toolTip">
+    <string>粘贴</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionSearch">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/find.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>搜索</string>
+   </property>
+   <property name="toolTip">
+    <string>搜索</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionSetting">
+   <property name="icon">
+    <iconset>
+     <normaloff>UI/run.png</normaloff>
+     <normalon>:/UI/run.png</normalon>UI/run.png</iconset>
+   </property>
+   <property name="text">
+    <string>设置</string>
+   </property>
+   <property name="toolTip">
+    <string>试卷设置</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset>
+     <normaloff>UI/documentinfo.png</normaloff>
+     <normalon>:/UI/documentinfo.png</normalon>UI/documentinfo.png</iconset>
+   </property>
+   <property name="text">
+    <string>帮助</string>
+   </property>
+   <property name="toolTip">
+    <string>帮助</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/exit.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭</string>
+   </property>
+  </action>
+  <action name="actionGenerate">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/exec.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>生成试卷</string>
+   </property>
+   <property name="toolTip">
+    <string>生成试卷</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionFileNew">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/filenew.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>新建</string>
+   </property>
+   <property name="toolTip">
+    <string>新建试卷工程</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/messagebox_info.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>关于</string>
+   </property>
+   <property name="toolTip">
+    <string>关于 自动出卷系统</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/editundo.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>撤销</string>
+   </property>
+   <property name="toolTip">
+    <string>撤销上一次操作</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/editredo.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>重做</string>
+   </property>
+   <property name="toolTip">
+    <string>重新执行下一次操作</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionBold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/textbold.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>加粗</string>
+   </property>
+   <property name="toolTip">
+    <string>加粗字体</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+B</string>
+   </property>
+  </action>
+  <action name="actionItalic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/textitalic.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>倾斜</string>
+   </property>
+   <property name="toolTip">
+    <string>倾斜字体</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+I</string>
+   </property>
+  </action>
+  <action name="actionUnderline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/textunder.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>下划线</string>
+   </property>
+   <property name="toolTip">
+    <string>添加字体下划线</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+U</string>
+   </property>
+  </action>
+  <action name="actionLeftAlign">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/textleft.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>左对齐</string>
+   </property>
+   <property name="toolTip">
+    <string>左对齐</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+L</string>
+   </property>
+  </action>
+  <action name="actionRightAlign">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/textright.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>右对齐</string>
+   </property>
+   <property name="toolTip">
+    <string>右对齐</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+R</string>
+   </property>
+  </action>
+  <action name="actionCenter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/textcenter.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>居中</string>
+   </property>
+   <property name="toolTip">
+    <string>居中</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+C</string>
+   </property>
+  </action>
+  <action name="actionFullJustify">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/textjustify.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>左右对齐</string>
+   </property>
+   <property name="toolTip">
+    <string>左右对齐</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
+  </action>
+  <action name="actionChangeFontColor">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/editcolor.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>颜色</string>
+   </property>
+   <property name="toolTip">
+    <string>改变字体颜色</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
+  </action>
+  <action name="actionExportPDF">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/exportpdf.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>导出为pdf</string>
+   </property>
+   <property name="toolTip">
+    <string>导出为pdf文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/UI/fileprint.png</normaloff>:/UI/fileprint.png</iconset>
+   </property>
+   <property name="text">
+    <string>打印</string>
+   </property>
+   <property name="toolTip">
+    <string>打印试卷</string>
+   </property>
+  </action>
+  <action name="actionPrintPreview">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/fileprint.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>打印预览</string>
+   </property>
+   <property name="toolTip">
+    <string>打印预览</string>
+   </property>
+  </action>
+  <action name="actionZoomIn">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/zoomin.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>放大</string>
+   </property>
+   <property name="toolTip">
+    <string>放大</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+=</string>
+   </property>
+  </action>
+  <action name="actionZoomOut">
+   <property name="icon">
+    <iconset>
+     <normalon>:/UI/zoomout.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>缩小</string>
+   </property>
+   <property name="toolTip">
+    <string>缩小</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionAdmin">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/UI/kopeteavailable.png</normaloff>:/UI/kopeteavailable.png</iconset>
+   </property>
+   <property name="text">
+    <string>数据库管理</string>
+   </property>
+   <property name="toolTip">
+    <string>管理用户与试题</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
